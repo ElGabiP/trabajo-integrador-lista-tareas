@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { BiTask, BiTaskX } from "react-icons/bi";
 
 const TaskItem = ({ task, handleCompleteTask, handleDeleteTask }) => {
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(task.completed);
 
   const handleComplete = () => {
     setCompleted(!completed);
