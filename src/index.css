@@ -97,14 +97,16 @@ input {
   border: none;
   outline: none;
 }
+
 .task-list {
   font-size: var(--font-small);
   letter-spacing: 1px;
   list-style-position: inside;
   word-break: break-word;
   word-wrap: break-word;
-  overflow-wrap: break-word;  
+  overflow-wrap: break-word;
 }
+
 .task-list div,
 .task-form {
   display: grid;

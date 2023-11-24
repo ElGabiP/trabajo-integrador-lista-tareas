@@ -21,7 +21,13 @@ const TaskForm = ({ addTask }) => {
     <div>
       <h2 className="subtitle">Agregá una Nueva Tarea</h2>
       <form className="task-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Describí tu tarea en menos de 140 caracteres." maxlength="140" value={taskName} onChange={handleInputChange} />
+        <input
+          type="text"
+          placeholder="Describí tu tarea en menos de 140 caracteres."
+          maxLength="140"
+          value={taskName}
+          onChange={handleInputChange}
+        />
         <button className="btn" title="Agregar tarea" type="submit">
           <BiAddToQueue />
         </button>
