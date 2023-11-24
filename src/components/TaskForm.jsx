@@ -24,7 +24,7 @@ const TaskForm = ({ addTask }) => {
         <input
           type="text"
           placeholder="Describí tu tarea en menos de 140 caracteres."
-          maxLength="140"
+          maxLength={140}
           value={taskName}
           onChange={handleInputChange}
         />
