@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
+import Counter from "./components/Counter";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     : [];
 
   const [tasks, setTasks] = useState(initialTasks);
+  const [categories, setCategories] = useState([]); //Inicializar el estado de la lista de categorías.
 
   const handleCompleteTask = (taskId) => {
     setTasks((prevTasks) =>
@@ -33,6 +35,23 @@ function App() {
     console.log("Lista de tareas actualizada en Local Storage:", tasks);
   }, [tasks]);
 
+  useEffect(() => {
+    // Definir las  categorías y agregarlas al estado de categorías.
+    const newCategories = [
+      { name: "Total de tareas", countFunction: () => tasks.length },
+      {
+        name: "Tareas pendientes",
+        countFunction: () => tasks.filter((task) => !task.completed).length,
+      },
+      {
+        name: "Tareas completadas",
+        countFunction: () => tasks.filter((task) => task.completed).length,
+      },
+      // Se pueden agregar más categorías aquí...
+    ];
+    setCategories(newCategories);
+  }, [tasks]);
+
   return (
     <>
       <h1 className="title">
@@ -45,6 +64,15 @@ function App() {
           handleCompleteTask={handleCompleteTask}
           handleDeleteTask={handleDeleteTask}
         />
+        <section className="counters">
+          {categories.map((category) => (
+            <Counter
+              key={category.name}
+              category={category.name}
+              countFunction={category.countFunction}
+            />
+          ))}
+        </section>
       </section>
     </>
   );

@@ -76,14 +76,19 @@ body {
   padding: 0 var(--spacing-12) var(--spacing-16);
 }
 
+.counters {
+  margin-top: var(--spacing-24);
+}
+
 .btn {
+  display: flex;
   background-color: var(--dark-solid);
   color: var(--light-solid);
   transition: background 0.4s ease-in-out;
   font-size: var(--font-medium);
   text-align: center;
-  padding: 1% var(--spacing-16);
-  margin: var(--spacing-8) var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-16);
+  margin: var(--spacing-8) 0 var(--spacing-8) var(--spacing-4);
   border-style: none;
 }
 
@@ -98,13 +103,21 @@ input {
   outline: none;
 }
 
-.task-list {
+.task-list,
+p {
   font-size: var(--font-small);
   letter-spacing: 1px;
-  list-style-position: inside;
   word-break: break-word;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+.task-list {
+  list-style-position: inside;
+}
+
+p {
+  font-weight: 700;
 }
 
 .task-list div,
